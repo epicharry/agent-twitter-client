@@ -7,7 +7,7 @@ export default defineConfig({
     {
       name: 'api-routes',
       configureServer(server) {
-        server.middlewares.use(async (req, res, next) => {
+        server.middlewares.use(async (req: any, res: any, next: any) => {
           if (req.url?.startsWith('/api/')) {
             const apiPath = req.url.replace('/api/', '');
 
@@ -15,7 +15,7 @@ export default defineConfig({
               const handler = await import(`./api/${apiPath}.js`);
 
               let body = '';
-              req.on('data', chunk => {
+              req.on('data', (chunk: any) => {
                 body += chunk.toString();
               });
 
