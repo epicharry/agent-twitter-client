@@ -99,6 +99,31 @@ function ProfileTweetsFetcher({ cookies }: ProfileTweetsFetcherProps) {
     URL.revokeObjectURL(url);
   };
 
+  const handleExportImages = () => {
+    const imageLinks: string[] = [];
+
+    tweets.forEach(tweet => {
+      if (tweet.photos && Array.isArray(tweet.photos)) {
+        tweet.photos.forEach((photo: any) => {
+          if (photo.url) {
+            const baseUrl = photo.url.split('?')[0];
+            const highResUrl = `${baseUrl}?format=jpg&name=large`;
+            imageLinks.push(highResUrl);
+          }
+        });
+      }
+    });
+
+    const dataStr = JSON.stringify(imageLinks, null, 2);
+    const dataBlob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(dataBlob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${username}_images.json`;
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="profile-tweets-fetcher">
       <h2>Fetch Profile Tweets</h2>
@@ -152,9 +177,14 @@ function ProfileTweetsFetcher({ cookies }: ProfileTweetsFetcherProps) {
         <div className="results-section">
           <div className="results-header">
             <h3>Fetched {tweets.length} tweets</h3>
-            <button className="btn-export" onClick={handleExport}>
-              Export JSON
-            </button>
+            <div className="export-buttons">
+              <button className="btn-export" onClick={handleExport}>
+                Export Tweets JSON
+              </button>
+              <button className="btn-export" onClick={handleExportImages}>
+                Export Images Only
+              </button>
+            </div>
           </div>
 
           <div className="tweets-preview">
