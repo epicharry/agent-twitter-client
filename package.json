@@ -24,10 +24,11 @@
   "author": "Ruby Research",
   "license": "MIT",
   "scripts": {
+    "dev": "cd client && npm run dev",
     "build": "rimraf dist && rollup -c && cd client && npm run build",
     "build:lib": "rimraf dist && rollup -c",
     "build:client": "cd client && npm run build",
-    "server": "node server.js",
+    "preview": "cd client && npm run preview",
     "docs:generate": "typedoc --options typedoc.json",
     "docs:deploy": "npm run docs:generate && gh-pages -d docs",
     "format": "prettier --write src/**/*.ts",

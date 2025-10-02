@@ -1,13 +1,10 @@
-const express = require('express');
-const path = require('path');
-const { Scraper } = require('./dist/node/cjs/index.cjs');
+import { Scraper } from '../../dist/node/cjs/index.cjs';
 
-const app = express();
-const PORT = process.env.PORT || 3001;
+export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
 
-app.use(express.json({ limit: '50mb' }));
-
-app.post('/api/fetch-tweets', async (req, res) => {
   const { username, maxTweets, cookies } = req.body;
 
   if (!username || !cookies || !Array.isArray(cookies)) {
@@ -54,15 +51,4 @@ app.post('/api/fetch-tweets', async (req, res) => {
     sendEvent('error', { message: error.message || 'Failed to fetch tweets' });
     res.end();
   }
-});
-
-app.use(express.static(path.join(__dirname, 'client/dist')));
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/dist/index.html'));
-});
-
-app.listen(PORT, () => {
-  console.log(`🚀 Twitter Scraper running on http://localhost:${PORT}`);
-  console.log(`📊 Dashboard: http://localhost:${PORT}`);
-});
+}

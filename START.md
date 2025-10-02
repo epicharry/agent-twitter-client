@@ -2,22 +2,14 @@
 
 ## Quick Start
 
-### 1. Start the Backend Server
+### 1. Start the App
 ```bash
-npm run server
-```
-
-The server will start on http://localhost:3001
-
-### 2. Start the Frontend (in a new terminal)
-```bash
-cd client
 npm run dev
 ```
 
 The app will open on http://localhost:5173
 
-### 3. Using the App
+### 2. Using the App
 
 1. Open http://localhost:5173 in your browser
 2. Paste your Twitter cookies in JSON format (see cookies.json for example format)
@@ -25,12 +17,16 @@ The app will open on http://localhost:5173
 4. Select "Fetch Profile Tweets" from the dashboard
 5. Enter a Twitter username and max number of tweets
 6. Click "Start Fetching" to scrape tweets
-7. Export the results as JSON when complete
+7. Export the results:
+   - **Export Tweets JSON** - Full tweet data
+   - **Export Images Only** - Just image URLs in high resolution
+   - **Export Videos Only** - Just video URLs
+   - **Export Images + Videos** - Combined media URLs
 
 ## Project Structure
 
-- `/client` - React frontend (Vite + TypeScript)
-- `/server.js` - Express API server
+- `/client` - Main application (Vite + React + TypeScript)
+- `/client/api` - API routes for tweet fetching
 - `/src` - Twitter scraper library source code
 - `/dist` - Compiled scraper library
 
@@ -39,3 +35,5 @@ The app will open on http://localhost:5173
 - Cookies should be in the format shown in cookies.json
 - The scraper uses the agent-twitter-client library
 - All scraped data can be exported as JSON files
+- Images are exported in high resolution format
+- Videos are exported without query parameters
