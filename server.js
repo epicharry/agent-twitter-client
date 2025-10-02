@@ -28,7 +28,7 @@ app.post('/api/fetch-tweets', async (req, res) => {
 
     sendEvent('progress', { message: `Fetching tweets for @${username}...` });
 
-    const tweetIterator = await scraper.getTweets(username, 100);
+    const tweetIterator = await scraper.getTweets(username, maxTweets || 200);
     let tweets = [];
     let count = 0;
 
@@ -38,11 +38,11 @@ app.post('/api/fetch-tweets', async (req, res) => {
 
       sendEvent('tweet', { tweet });
 
-      if (count % 10 === 0) {
+      if (count % 100 === 0) {
         sendEvent('progress', { message: `Fetched ${count} tweets...` });
       }
 
-      if (count >= maxTweets) {
+      if (maxTweets && count >= maxTweets) {
         break;
       }
     }
