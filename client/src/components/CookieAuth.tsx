@@ -62,8 +62,11 @@ function CookieAuth({ onAuthSuccess }: CookieAuthProps) {
   return (
     <div className="cookie-auth">
       <div className="auth-card">
-        <h1>Twitter Scraper</h1>
-        <p className="subtitle">Enter your Twitter cookies to get started</p>
+        <div className="auth-header">
+          <div className="auth-logo">🐦</div>
+          <h1>Twitter Scraper</h1>
+          <p className="subtitle">Enter your Twitter cookies to get started</p>
+        </div>
 
         <div className="form-group">
           <label>Paste your cookies.json content:</label>

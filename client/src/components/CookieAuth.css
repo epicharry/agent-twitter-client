@@ -1,27 +1,79 @@
 .cookie-auth {
   width: 100%;
-  max-width: 600px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  position: relative;
+  z-index: 1;
 }
 
 .auth-card {
-  background: white;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 48px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.auth-logo {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
   border-radius: 16px;
-  padding: 40px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin: 0 auto 20px;
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 8px 48px rgba(59, 130, 246, 0.5);
+  }
 }
 
 .auth-card h1 {
   font-size: 32px;
-  color: #1da1f2;
+  font-weight: 700;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 8px;
-  text-align: center;
 }
 
 .subtitle {
-  color: #666;
-  text-align: center;
-  margin-bottom: 32px;
+  color: #94a3b8;
   font-size: 16px;
+  font-weight: 400;
 }
 
 .form-group {
@@ -30,66 +82,111 @@
 
 .form-group label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   font-weight: 600;
-  color: #333;
+  color: #e2e8f0;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .button-group {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 12px;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 .btn-primary {
-  flex: 1;
-  background: #1da1f2;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
   color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .btn-primary:hover {
-  background: #1a91da;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
 }
 
 .btn-secondary {
-  flex: 1;
-  background: #e0e0e0;
-  color: #333;
+  background: rgba(255, 255, 255, 0.05);
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .btn-secondary:hover {
-  background: #d0d0d0;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .error-message {
-  background: #fee;
-  color: #c33;
-  padding: 12px;
-  border-radius: 8px;
-  margin-bottom: 16px;
+  background: rgba(239, 68, 68, 0.1);
+  color: #fca5a5;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 24px;
   font-size: 14px;
+  border-left: 3px solid #ef4444;
+  animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
 }
 
 .info-box {
-  background: #f5f8fa;
-  padding: 20px;
-  border-radius: 8px;
-  border-left: 4px solid #1da1f2;
+  background: rgba(59, 130, 246, 0.05);
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.info-box::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #3b82f6 0%, #8b5cf6 100%);
 }
 
 .info-box p {
-  margin-bottom: 12px;
-  color: #333;
+  margin-bottom: 16px;
+  color: #e2e8f0;
   font-size: 14px;
+  font-weight: 600;
 }
 
 .info-box ol {
-  margin-left: 20px;
-  color: #666;
+  margin-left: 24px;
+  color: #94a3b8;
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.8;
 }
 
 .info-box ol li {
-  margin-bottom: 4px;
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 8px;
+}
+
+.info-box ol li::marker {
+  color: #3b82f6;
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .auth-card {
+    padding: 32px 24px;
+  }
+
+  .button-group {
+    grid-template-columns: 1fr;
+  }
 }
