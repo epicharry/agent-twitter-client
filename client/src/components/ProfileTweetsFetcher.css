@@ -151,15 +151,17 @@
 .export-buttons {
   display: flex;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
 .btn-export {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: white;
-  padding: 12px 24px;
+  padding: 12px 20px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  font-size: 14px;
 }
 
 .btn-export::after {

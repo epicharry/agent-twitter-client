@@ -124,6 +124,64 @@ function ProfileTweetsFetcher({ cookies }: ProfileTweetsFetcherProps) {
     URL.revokeObjectURL(url);
   };
 
+  const handleExportVideos = () => {
+    const videoLinks: string[] = [];
+
+    tweets.forEach(tweet => {
+      if (tweet.videos && Array.isArray(tweet.videos)) {
+        tweet.videos.forEach((video: any) => {
+          if (video.url) {
+            const cleanUrl = video.url.split('?')[0];
+            videoLinks.push(cleanUrl);
+          }
+        });
+      }
+    });
+
+    const dataStr = JSON.stringify(videoLinks, null, 2);
+    const dataBlob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(dataBlob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${username}_videos.json`;
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const handleExportMedia = () => {
+    const mediaLinks: string[] = [];
+
+    tweets.forEach(tweet => {
+      if (tweet.photos && Array.isArray(tweet.photos)) {
+        tweet.photos.forEach((photo: any) => {
+          if (photo.url) {
+            const baseUrl = photo.url.split('?')[0];
+            const highResUrl = `${baseUrl}?format=jpg&name=large`;
+            mediaLinks.push(highResUrl);
+          }
+        });
+      }
+
+      if (tweet.videos && Array.isArray(tweet.videos)) {
+        tweet.videos.forEach((video: any) => {
+          if (video.url) {
+            const cleanUrl = video.url.split('?')[0];
+            mediaLinks.push(cleanUrl);
+          }
+        });
+      }
+    });
+
+    const dataStr = JSON.stringify(mediaLinks, null, 2);
+    const dataBlob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(dataBlob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${username}_media.json`;
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="profile-tweets-fetcher">
       <h2>Fetch Profile Tweets</h2>
@@ -183,6 +241,12 @@ function ProfileTweetsFetcher({ cookies }: ProfileTweetsFetcherProps) {
               </button>
               <button className="btn-export" onClick={handleExportImages}>
                 Export Images Only
+              </button>
+              <button className="btn-export" onClick={handleExportVideos}>
+                Export Videos Only
+              </button>
+              <button className="btn-export" onClick={handleExportMedia}>
+                Export Images + Videos
               </button>
             </div>
           </div>
