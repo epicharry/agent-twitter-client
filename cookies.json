@@ -1,0 +1,79 @@
+[
+  {
+    "key": "auth_token",
+    "value": "42862e54e014a59907c01b96b3a62ace7008bf58",
+    "domain": ".x.com",
+    "path": "/",
+    "secure": true,
+    "httpOnly": true
+  },
+  {
+    "key": "gt",
+    "value": "1973689278166089980",
+    "domain": ".x.com",
+    "path": "/",
+    "secure": true
+  },
+  {
+    "key": "guest_id",
+    "value": "v1%3A175939916792507233",
+    "domain": ".x.com",
+    "path": "/",
+    "secure": true
+  },
+  {
+    "key": "twid",
+    "value": "u%3D1725379052016640000",
+    "domain": ".x.com",
+    "path": "/",
+    "secure": true
+  },
+  {
+    "key": "lang",
+    "value": "en",
+    "domain": "x.com",
+    "path": "/"
+  },
+  {
+    "key": "__cuid",
+    "value": "1de745fd994747238328c6420336e04e",
+    "domain": ".x.com",
+    "path": "/"
+  },
+  {
+    "key": "att",
+    "value": "1-DCOA22rAOeQUvpf1X8Oh3YRroBeoXaiAnJ7eLybs",
+    "domain": ".x.com",
+    "path": "/",
+    "secure": true,
+    "httpOnly": true
+  },
+  {
+    "key": "ct0",
+    "value": "2d95797369050ec84038dd54d81fb56b42fee277e1286619c5748bcd4a67d3dd6f2e35ff77f855442d3c371fce84c67119b8c0c6b9fcf9aec169f8bb2bc56e60327408be6f5cc40b442a1b0f17ab630d",
+    "domain": ".x.com",
+    "path": "/",
+    "secure": true
+  },
+  {
+    "key": "guest_id_ads",
+    "value": "v1%3A175939916792507233",
+    "domain": ".x.com",
+    "path": "/",
+    "secure": true
+  },
+  {
+    "key": "guest_id_marketing",
+    "value": "v1%3A175939916792507233",
+    "domain": ".x.com",
+    "path": "/",
+    "secure": true
+  },
+  {
+    "key": "personalization_id",
+    "value": "\"v1_MgiPtkW/wC9BKom9Du4YZQ==\"",
+    "domain": ".x.com",
+    "path": "/",
+    "secure": true
+  }
+]
