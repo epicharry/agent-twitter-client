@@ -1,11 +1,10 @@
 const express = require('express');
-const cors = require('cors');
+const path = require('path');
 const { Scraper } = require('./dist/node/cjs/index.cjs');
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
-app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 
 app.post('/api/fetch-tweets', async (req, res) => {
@@ -57,6 +56,13 @@ app.post('/api/fetch-tweets', async (req, res) => {
   }
 });
 
+app.use(express.static(path.join(__dirname, 'client/dist')));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/dist/index.html'));
+});
+
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`🚀 Twitter Scraper running on http://localhost:${PORT}`);
+  console.log(`📊 Dashboard: http://localhost:${PORT}`);
 });
