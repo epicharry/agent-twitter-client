@@ -24,8 +24,9 @@
   "author": "Ruby Research",
   "license": "MIT",
   "scripts": {
-    "dev": "cd client && npm run dev",
+    "dev": "npm run build:lib && cd client && npm run dev",
     "build": "rimraf dist && rollup -c && cd client && npm run build",
+    "build:lib": "rollup -c",
     "preview": "cd client && npm run preview"
   },
   "dependencies": {

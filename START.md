@@ -2,14 +2,22 @@
 
 ## Quick Start
 
-### 1. Start the App
+### 1. First Time Setup
+```bash
+npm install
+cd client && npm install && cd ..
+```
+
+### 2. Start the App
 ```bash
 npm run dev
 ```
 
 The app will open on http://localhost:5173
 
-### 2. Using the App
+Note: The first run will build the library, which takes a few seconds.
+
+### 3. Using the App
 
 1. Open http://localhost:5173 in your browser
 2. Paste your Twitter cookies in JSON format (see cookies.json for example format)
