@@ -1,0 +1,107 @@
+.dashboard {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.dashboard-container {
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  min-height: 600px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.dashboard-header h1 {
+  font-size: 28px;
+  color: #1da1f2;
+}
+
+.btn-logout {
+  background: #ff4757;
+  color: white;
+}
+
+.btn-logout:hover {
+  background: #ee3645;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.feature-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 32px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  text-align: center;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+}
+
+.feature-card.disabled {
+  background: #e0e0e0;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.feature-card.disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.feature-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.feature-card h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.feature-content {
+  animation: fadeIn 0.3s ease;
+}
+
+.btn-back {
+  background: #f0f0f0;
+  color: #333;
+  margin-bottom: 24px;
+}
+
+.btn-back:hover {
+  background: #e0e0e0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

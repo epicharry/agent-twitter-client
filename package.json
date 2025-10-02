@@ -24,7 +24,10 @@
   "author": "Ruby Research",
   "license": "MIT",
   "scripts": {
-    "build": "rimraf dist && rollup -c",
+    "build": "rimraf dist && rollup -c && cd client && npm run build",
+    "build:lib": "rimraf dist && rollup -c",
+    "build:client": "cd client && npm run build",
+    "server": "node server.js",
     "docs:generate": "typedoc --options typedoc.json",
     "docs:deploy": "npm run docs:generate && gh-pages -d docs",
     "format": "prettier --write src/**/*.ts",
@@ -32,6 +35,8 @@
   },
   "dependencies": {
     "@sinclair/typebox": "^0.32.20",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
     "headers-polyfill": "^3.1.2",
     "json-stable-stringify": "^1.0.2",
     "otpauth": "^9.2.2",

@@ -1,0 +1,95 @@
+.cookie-auth {
+  width: 100%;
+  max-width: 600px;
+}
+
+.auth-card {
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.auth-card h1 {
+  font-size: 32px;
+  color: #1da1f2;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.subtitle {
+  color: #666;
+  text-align: center;
+  margin-bottom: 32px;
+  font-size: 16px;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.button-group {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.btn-primary {
+  flex: 1;
+  background: #1da1f2;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #1a91da;
+}
+
+.btn-secondary {
+  flex: 1;
+  background: #e0e0e0;
+  color: #333;
+}
+
+.btn-secondary:hover {
+  background: #d0d0d0;
+}
+
+.error-message {
+  background: #fee;
+  color: #c33;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.info-box {
+  background: #f5f8fa;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #1da1f2;
+}
+
+.info-box p {
+  margin-bottom: 12px;
+  color: #333;
+  font-size: 14px;
+}
+
+.info-box ol {
+  margin-left: 20px;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.info-box ol li {
+  margin-bottom: 4px;
+}
